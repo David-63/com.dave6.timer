@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "com.dave6.unity-utils": "https://github.com/David-63/com.dave6.unity-utils.git"
+  }
+}
