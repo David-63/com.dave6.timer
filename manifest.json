@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "com.dave6.timer": "https://github.com/David-63/com.dave6.timer.git",
-    "com.dave6.unity-utils": "https://github.com/David-63/com.dave6.unity-utils.git#0.0.1"
-  }
-}
