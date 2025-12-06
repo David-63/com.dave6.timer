@@ -16,5 +16,8 @@
     "name": "David-63",
     "email": "jiseop.63@gmail.com",
     "url": "https://github.com/David-63"
+  },
+  "dependencies": {
+    "com.dave6.unity-utils": "0.0.1"
   }
 }
