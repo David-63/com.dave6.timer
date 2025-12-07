@@ -1,7 +1,7 @@
 {
   "name": "com.dave6.timer",
   "version": "0.0.1",
-  "displayName": "Timer",
+  "displayName": "Dave Timer",
   "description": "A runtime timer system built on top of PlayerLoopUtils.",
   "unity": "6000.0",
   "unityRelease": "0",
