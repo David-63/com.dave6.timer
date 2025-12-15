@@ -71,4 +71,25 @@ namespace UnityUtils.Timer
         }
         #endregion
     }
+
+    public static class TimerExtensions
+    {
+        /// <summary>
+        /// 공통 함수로 제공되지만, Tick이 구현된 타이머에서만 작동함!
+        /// 타이머를 다시 돌리는 함수
+        /// </summary>
+        /// <param name="target"></param>
+        public static void RestartTimer(this Timer target)
+        {
+            if (target.IsRunning)
+            {
+                target.Reset();
+                target.Resume();
+            }
+            else
+            {
+                target.Start();
+            }
+        }
+    }
 }
