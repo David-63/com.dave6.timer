@@ -8,8 +8,7 @@ namespace UnityUtils.Timer
 {
     internal static class TimerBootstrapper
     {
-        static PlayerLoopSystem timerSystem;
-
+        static PlayerLoopSystem _TimerSystem;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
         internal static void Initialize()
@@ -44,19 +43,19 @@ namespace UnityUtils.Timer
 
         static bool InsertTimerManager<T>(ref PlayerLoopSystem loop, int idx)
         {
-            timerSystem = new PlayerLoopSystem()
+            _TimerSystem = new PlayerLoopSystem()
             {
                 type = typeof(TimerManager),
                 subSystemList = null,
                 updateDelegate = TimerManager.UpdateTimers,
             };
 
-            return PlayerLoopUtils.InsertSystem<T>(ref loop, in timerSystem, idx);
+            return PlayerLoopUtils.InsertSystem<T>(ref loop, in _TimerSystem, idx);
         }
 
         static void RemoveTimerManager<T>(ref PlayerLoopSystem loop)
         {
-            PlayerLoopUtils.RemoveSystem<T>(ref loop, in timerSystem);
+            PlayerLoopUtils.RemoveSystem<T>(ref loop, in _TimerSystem);
         }
     }
 }

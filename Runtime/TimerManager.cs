@@ -1,32 +1,31 @@
 using System.Collections.Generic;
-using UnityEngine.LowLevel;
 
 namespace UnityUtils.Timer
 {
     public static class TimerManager
     {
-        static readonly List<Timer> timers = new();
+        static readonly List<Timer> _Timers = new();
 
-        public static void RegisterTimer(Timer timer) => timers.Add(timer);
-        public static void DeregisterTimer(Timer timer) => timers.Remove(timer);
+        public static void RegisterTimer(Timer timer) => _Timers.Add(timer);
+        public static void DeregisterTimer(Timer timer) => _Timers.Remove(timer);
 
         public static void UpdateTimers()
         {
-            if (timers.Count == 0) return;
+            if (_Timers.Count == 0) return;
 
-            for (int i = timers.Count - 1; i >= 0; i--)
+            for (int i = _Timers.Count - 1; i >= 0; i--)
             {
-                timers[i].Tick();
+                _Timers[i].Tick();
             }
         }
 
         public static void Clear()
         {
-            for (int i = timers.Count - 1; i >= 0; i--)
+            for (int i = _Timers.Count - 1; i >= 0; i--)
             {
-                timers[i].Dispose();
+                _Timers[i].Dispose();
             }
-            timers.Clear();
+            _Timers.Clear();
         }
     }
 }

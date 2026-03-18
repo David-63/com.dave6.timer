@@ -8,18 +8,18 @@ namespace UnityUtils.Timer
         public float CurrentTime { get; protected set; }
         public bool IsRunning { get; private set; }
 
-        protected float InitialTime;
+        protected float _InitialTime;
 
-        public float Progress => Mathf.Clamp(CurrentTime / InitialTime, 0, 1);
+        public float Progress => Mathf.Clamp(CurrentTime / _InitialTime, 0, 1);
 
         public Action OnTimerStart = delegate { };
         public Action OnTimerStop = delegate { };
 
 
-        protected Timer(float value) => InitialTime = value;
+        protected Timer(float value) => _InitialTime = value;
         public void Start()
         {
-            CurrentTime = InitialTime;
+            CurrentTime = _InitialTime;
             if (!IsRunning)
             {
                 IsRunning = true;
@@ -42,10 +42,10 @@ namespace UnityUtils.Timer
         public void Resume() => IsRunning = true;
         public void Pause() => IsRunning = false;
 
-        public virtual void Reset() => CurrentTime = InitialTime;
+        public virtual void Reset() => CurrentTime = _InitialTime;
         public virtual void Reset(float newTime)
         {
-            InitialTime = newTime;
+            _InitialTime = newTime;
             Reset();
         }
 
